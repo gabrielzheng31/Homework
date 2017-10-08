@@ -24,7 +24,7 @@ class DbtopicSpider(scrapy.Spider):
 
         for each in reply:
             item = DoubantopicItem()
-            item['content'] = each.xpath('p/text()').extract()
+            item['content'] = each.xpath('p/text()').extract()[0].strip(' ')
             items.append(item)
 
         return items
